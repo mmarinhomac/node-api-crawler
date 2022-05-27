@@ -11,7 +11,9 @@ class Crawler {
       defaultViewport: null,
       // devtools: true,
       args: [
-        '--start-maximized'
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        // '--start-maximized'
       ],
     })
     const [page] = await this.browser.pages();
