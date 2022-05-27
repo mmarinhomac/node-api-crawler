@@ -9,7 +9,7 @@ class Crawler {
     this.browser = await puppeteer.launch({
       headless: true, // Show Browser, in production always true
       defaultViewport: null,
-      // devtools: true,
+      // devtools: true, // Open devtools
       args: [
         '--no-sandbox',
         '--disable-setuid-sandbox',
