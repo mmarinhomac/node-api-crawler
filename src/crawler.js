@@ -11,8 +11,10 @@ class Crawler {
       defaultViewport: null,
       // devtools: true, // Open devtools
       args: [
+        '--incognito',
         '--no-sandbox',
-        '--disable-setuid-sandbox',
+        '--single-process',
+        '--no-zygote'
         // '--start-maximized'
       ],
     })
