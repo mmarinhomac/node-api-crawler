@@ -9,13 +9,13 @@ class Crawler {
     this.browser = await puppeteer.launch({
       headless: true, // Show Browser, in production always true
       defaultViewport: null,
-      // devtools: true, // Open devtools
+      devtools: false, // Open devtools
       args: [
         '--incognito',
         '--no-sandbox',
         '--single-process',
-        '--no-zygote'
-        // '--start-maximized'
+        '--no-zygote',
+        '--start-maximized'
       ],
     })
     const [page] = await this.browser.pages();
@@ -24,9 +24,9 @@ class Crawler {
 
   async dribbble() {
     await this.page.goto('https://dribbble.com/')
-    await this.page.waitForSelector('#screenshot-18346491 > div.shot-details-container.js-shot-details-container > div.user-information > a.hoverable.url > span')
+    await this.page.waitForSelector('li > div.shot-details-container.js-shot-details-container > div.user-information > a.hoverable.url > span')
     const title = await this.page.evaluate(() => {
-      const title = document.querySelector('#screenshot-18346491 > div.shot-details-container.js-shot-details-container > div.user-information > a.hoverable.url > span')
+      const title = document.querySelector('li > div.shot-details-container.js-shot-details-container > div.user-information > a.hoverable.url > span')
       return title.innerHTML
     })
     return title
