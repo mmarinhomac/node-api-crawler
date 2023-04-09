@@ -10,6 +10,7 @@ class Crawler {
       headless: true, // Show Browser, in production always true
       defaultViewport: null,
       devtools: false, // Open devtools
+      executablePath: '/usr/bin/google-chrome',
       args: [
         '--incognito',
         '--no-sandbox',
